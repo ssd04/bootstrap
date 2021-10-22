@@ -23,3 +23,12 @@ install_pkg ()
             ;;
     esac
 }
+
+install_all_pkgs ()
+{
+    programs_file=${RUN_PATH}/programs.csv
+
+    while IFS=, read -r program; do
+        install_pkg ${program}
+	done < ${programs_file}
+}

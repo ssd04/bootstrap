@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-source ./src/helpers.sh
+RUN_PATH=$( dirname "$BASH_SOURCE" )
+
+source ${RUN_PATH}/src/helpers.sh
+source ${RUN_PATH}/src/packages.sh
 
 main ()
 {
@@ -8,6 +11,8 @@ main ()
 
     echo $VERSION
     echo $OS
+    
+    install_all_pkgs
 }
 
 main
