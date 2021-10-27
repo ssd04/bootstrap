@@ -15,7 +15,7 @@ install_pkg ()
             ;;
         "Arch Linux")
             log_info "Installing package [ $1 ] ..."
-            sudo pacman -S $1 --noconfirm 1> /dev/null || log_error "Installation of package $1 failed." && exit 1
+            sudo pacman -S $1 --noconfirm 1> /dev/null || (log_error "Installation of package $1 failed." && exit 1)
             ;;
         *)
             log_error "This script is not compatible with this OS.";
