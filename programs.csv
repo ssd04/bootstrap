@@ -19,3 +19,7 @@ vim
 wget
 xclip
 zsh
+ctags
+xdotool
+meld
+glogg
