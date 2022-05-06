@@ -20,6 +20,9 @@ wget
 xclip
 zsh
 ctags
+pandoc
 xdotool
 meld
 glogg
+zbar-tools
+oathtool
