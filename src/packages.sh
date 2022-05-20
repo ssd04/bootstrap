@@ -24,8 +24,6 @@ install_pkg ()
     esac
 }
 
-set -x
-
 install_spotify()
 {
     case $OS in
@@ -41,11 +39,17 @@ install_spotify()
     esac
 }
 
-install_all_pkgs ()
+install_all_pkgs()
 {
     programs_file=${RUN_PATH}/programs.csv
 
     while IFS=, read -r program; do
         install_pkg ${program}
 	done < ${programs_file}
+}
+
+install_latex()
+{
+    install_pkg latexmk
+    install_pkg texlive texlive-xetex
 }
