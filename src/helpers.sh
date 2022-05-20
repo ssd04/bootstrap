@@ -17,7 +17,7 @@ log_info()
 #######################
 # General
 #######################
-get_os_type ()
+get_os_type()
 {
     if [ -f /etc/os-release ]; then
         . /etc/os-release
@@ -32,14 +32,25 @@ get_os_type ()
     fi
 }
 
-check_if_command_exists ()
+check_if_command_exists()
 {
     type $1 &> /dev/null || {
-        log_error 'Please install git or update your path to include the git executable!'
+        log_error "Please install command [ $1 ]"
     }
 }
 
-remove_file ()
+check_dependencies()
+{
+    ############################################
+    # $1 - array of strings
+    ############################################
+    for i in "$1"; do
+        check_if_command_exists $i
+    done
+}
+
+
+remove_file()
 {
     if [ -e "$1" ]; then
         echo -n "The following file will be removed: [ $1 ]. Proceed? (y/n)? "
@@ -53,7 +64,7 @@ remove_file ()
     fi
 }
 
-remove_dir ()
+remove_dir()
 {
     if [ -d "$1" ]; then
         echo -n "The following directory will be removed: [ $1 ]. Proceed? (y/n)? "
