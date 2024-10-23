@@ -4,6 +4,7 @@ python()
 {
     local python_bin=$(which python3)
     
+    # needed for i3 bumbleee-status cpu plugin
     ${python_bin} -m pip install psutil
 }
 
